@@ -19,4 +19,6 @@ Example of compiling from a project folder with the scripts in the root might be
 
 <I>compile.sh classes/Classname.cls build.properties</I>
 
+Currently the gist compiler only supports Apex.  Will be fixed shortly.
+
 Questions?  On twitter @joshbirk.
