@@ -1,6 +1,6 @@
 echo "Running Gist"
 api=22 #default
-. build.properties
+. "${2}"
 
 if [ ${usekeychainaccess} == 'enabled' ]
 	then 

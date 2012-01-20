@@ -1,6 +1,6 @@
 echo "Compiling Gist"
 api=22 #default
-. ${2}
+. "${2}"
 
 if [ ${usekeychainaccess} == 'enabled' ]
 	then 
