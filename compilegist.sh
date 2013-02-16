@@ -72,8 +72,8 @@ if [ $success == 'true' ]
 	echo "Compiled Successfully"
 fi
 
-#rm request.xml
-#rm response.xml
+rm request.xml
+rm response.xml
 
 echo $debuglog | tr '\|' '\n'
 echo $error | tr '\|' '\n'
