@@ -5,7 +5,7 @@ if [ ! -d "files" ]; then
 fi 
 
 cd files
-rm *
+rm -R *
 cd ..
 
 echo 'Static Resources:'
@@ -19,4 +19,9 @@ do
 	IFS='/' read -ra str <<< "$contentType"
 	echo ${str[1]}
 	cp ./$filename.resource ../files/$filename.${str[1]}
+	if [ ${str[1]} == 'zip' ]
+	then
+		unzip -d "../files/$filename" ../files/$filename.${str[1]}
+		rm ../files/$filename.${str[1]}
+	fi
 done
