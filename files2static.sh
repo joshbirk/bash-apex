@@ -31,7 +31,7 @@ do
 		if [[ $extension == 'gif' || $extension == 'jpg' || $extension == 'jpeg' || $extension == 'png' ]]
 		then
 			contentType="image/$extension"
-		elif [[ $extension == 'text'  ||  $extension == 'xml' || $extension == 'rtf' || $extension == 'html' ]]
+		elif [[ $extension == 'text'  || $extension == 'css'  ||  $extension == 'csv' ||  $extension == 'xml' || $extension == 'rtf' || $extension == 'html' ]]
 		then	
 			contentType="text/$extension"
 		else	
@@ -39,8 +39,10 @@ do
 		fi
 	
 		cp ./$filename.$extension ../staticresources/$filename.resource
+		cp ../staticresources/$filename.resource ./staticresources
 		echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?><StaticResource xmlns=\"http://soap.sforce.com/2006/04/metadata\"><cacheControl>Public</cacheControl><contentType>$contentType</contentType></StaticResource>" > ../staticresources/$filename.resource-meta.xml
-	
+	    cp ../staticresources/$filename.resource-meta.xml ./staticresources
+		
 		echo "processing $filename.$extension $contentType"
 	fi
 done
