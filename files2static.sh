@@ -34,14 +34,17 @@ do
 		elif [[ $extension == 'text'  || $extension == 'css'  ||  $extension == 'csv' ||  $extension == 'xml' || $extension == 'rtf' || $extension == 'html' ]]
 		then	
 			contentType="text/$extension"
+		elif [[ $extension == 'js'  ]]
+		then	
+			contentType="text/javascript"
 		else	
 			contentType="application/$extension"
 		fi
 	
 		cp ./$filename.$extension ../staticresources/$filename.resource
-		cp ../staticresources/$filename.resource ./staticresources
+#		cp ../staticresources/$filename.resource ./staticresources
 		echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?><StaticResource xmlns=\"http://soap.sforce.com/2006/04/metadata\"><cacheControl>Public</cacheControl><contentType>$contentType</contentType></StaticResource>" > ../staticresources/$filename.resource-meta.xml
-	    cp ../staticresources/$filename.resource-meta.xml ./staticresources
+#	    cp ../staticresources/$filename.resource-meta.xml ./staticresources
 		
 		echo "processing $filename.$extension $contentType"
 	fi
